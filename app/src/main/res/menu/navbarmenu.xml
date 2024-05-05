@@ -2,15 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:icon="@android:drawable/ic_input_add"
+        android:icon="@drawable/matrix"
         android:id="@+id/fitStart"
-        android:title="addition" />
+        android:title="Matrix" />
     <item
-        android:icon="@drawable/mul"
-        android:id="@+id/second"
+        android:icon="@drawable/line"
+        android:title="Equation"
+        android:id="@+id/second" />
+
         android:title="multiplication" />
     <item
         android:id="@+id/third"
-        android:icon="@drawable/minus"
-        android:title="substraction" />
+        android:icon="@drawable/money"
+        android:title="Currency" />
 </menu>

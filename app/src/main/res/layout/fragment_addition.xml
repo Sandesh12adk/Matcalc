@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#9F9696"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#F5F5F5">
+    android:padding="16dp">
 
     <!-- First Matrix -->
     <TextView
@@ -21,11 +21,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
         android:background="#FFFFFF"
+        android:clipToPadding="false"
         android:elevation="4dp"
-        android:clipToPadding="false">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <!-- First Matrix EditText fields -->
         <LinearLayout
@@ -64,8 +64,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/editText_21"
@@ -98,8 +98,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/editText_31"
@@ -146,11 +146,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
         android:background="#FFFFFF"
+        android:clipToPadding="false"
         android:elevation="4dp"
-        android:clipToPadding="false">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <!-- Second Matrix EditText fields -->
         <LinearLayout
@@ -189,8 +189,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/editText_51"
@@ -223,8 +223,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/editText_61"
@@ -258,4 +258,5 @@
     </LinearLayout>
 
 </LinearLayout>
+
 

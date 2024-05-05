@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:background="#4CAF50"
             android:fontFamily="@font/aclonica"
-            android:text="Matrix"
+            android:text="Mulcalc"
             android:textAlignment="center"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
