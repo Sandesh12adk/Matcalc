@@ -1,7 +1,11 @@
 package com.example.mulcalc;
 import androidx.fragment.app.Fragment;
 import com.example.mulcalc.R;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +22,6 @@ import androidx.fragment.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-        private void replaceFragment(Fragment fragment) {
+
+    private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment); // Provide the ID of the container layout and the fragment
