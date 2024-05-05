@@ -3,11 +3,14 @@
 
     <item
         android:icon="@android:drawable/ic_input_add"
+        android:id="@+id/fitStart"
         android:title="addition" />
     <item
         android:icon="@drawable/mul"
+        android:id="@+id/second"
         android:title="multiplication" />
     <item
+        android:id="@+id/third"
         android:icon="@drawable/minus"
         android:title="substraction" />
 </menu>
