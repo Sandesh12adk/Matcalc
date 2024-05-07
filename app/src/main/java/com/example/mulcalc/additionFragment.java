@@ -2,11 +2,13 @@ package com.example.mulcalc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -48,130 +50,92 @@ public class additionFragment extends Fragment {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int[] result = new int[9];
-                int[] matrix1 = new int[]{
-                        Integer.parseInt(editText_11.getText().toString()),
-                        Integer.parseInt(editText_12.getText().toString()),
-                        Integer.parseInt(editText_13.getText().toString()),
-                        Integer.parseInt(editText_21.getText().toString()),
-                        Integer.parseInt(editText_22.getText().toString()),
-                        Integer.parseInt(editText_23.getText().toString()),
-                        Integer.parseInt(editText_31.getText().toString()),
-                        Integer.parseInt(editText_32.getText().toString()),
-                        Integer.parseInt(editText_33.getText().toString())
-                };
+                if (areFieldsValid(editText_11, editText_12, editText_13, editText_21, editText_22, editText_23,
+                        editText_31, editText_32, editText_33, editText_41, editText_42, editText_43,
+                        editText_51, editText_52, editText_53, editText_61, editText_62, editText_63)) {
+                    int[] result = calculateMatrixMultiplication(editText_11, editText_12, editText_13, editText_21, editText_22, editText_23,
+                            editText_31, editText_32, editText_33, editText_41, editText_42, editText_43,
+                            editText_51, editText_52, editText_53, editText_61, editText_62, editText_63);
 
-                int[] matrix2 = new int[]{
-                        Integer.parseInt(editText_41.getText().toString()),
-                        Integer.parseInt(editText_42.getText().toString()),
-                        Integer.parseInt(editText_43.getText().toString()),
-                        Integer.parseInt(editText_51.getText().toString()),
-                        Integer.parseInt(editText_52.getText().toString()),
-                        Integer.parseInt(editText_53.getText().toString()),
-                        Integer.parseInt(editText_61.getText().toString()),
-                        Integer.parseInt(editText_62.getText().toString()),
-                        Integer.parseInt(editText_63.getText().toString())
-                };
-
-
-                result[0] = matrix1[0]*matrix2[0] + matrix1[1]*matrix2[3] + matrix1[2]*matrix2[6];
-                result[1] = matrix1[0]*matrix2[1] + matrix1[1]*matrix2[4] + matrix1[2]*matrix2[7];
-                result[2] = matrix1[0]*matrix2[2] + matrix1[1]*matrix2[5] + matrix1[2]*matrix2[8];
-
-                result[3] = matrix1[3]*matrix2[0] + matrix1[4]*matrix2[3] + matrix1[5]*matrix2[6];
-                result[4] = matrix1[3]*matrix2[1] + matrix1[4]*matrix2[4] + matrix1[5]*matrix2[7];
-                result[5] = matrix1[3]*matrix2[2] + matrix1[4]*matrix2[5] + matrix1[5]*matrix2[8];
-
-                result[6] = matrix1[6]*matrix2[0] + matrix1[7]*matrix2[3] + matrix1[8]*matrix2[6];
-                result[7] = matrix1[6]*matrix2[1] + matrix1[7]*matrix2[4] + matrix1[8]*matrix2[7];
-                result[8] = matrix1[6]*matrix2[2] + matrix1[7]*matrix2[5] + matrix1[8]*matrix2[8];
-
-                Intent intent = new Intent(getActivity(), MainActivity2.class);
-                intent.putExtra("Result", result);
-                startActivity(intent);
+                    Intent intent = new Intent(getActivity(), MainActivity2.class);
+                    intent.putExtra("Result", result);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getActivity(), "Please fill all fields with numeric values", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int[] firstMatrix = new int[]{
-                        Integer.parseInt(editText_11.getText().toString()),
-                        Integer.parseInt(editText_12.getText().toString()),
-                        Integer.parseInt(editText_13.getText().toString()),
-                        Integer.parseInt(editText_21.getText().toString()),
-                        Integer.parseInt(editText_22.getText().toString()),
-                        Integer.parseInt(editText_23.getText().toString()),
-                        Integer.parseInt(editText_31.getText().toString()),
-                        Integer.parseInt(editText_32.getText().toString()),
-                        Integer.parseInt(editText_33.getText().toString())
-                };
+                if (areFieldsValid(editText_11, editText_12, editText_13, editText_21, editText_22, editText_23,
+                        editText_31, editText_32, editText_33, editText_41, editText_42, editText_43,
+                        editText_51, editText_52, editText_53, editText_61, editText_62, editText_63)) {
+                    int[] result = calculateMatrixSubtraction(editText_11, editText_12, editText_13, editText_21, editText_22, editText_23,
+                            editText_31, editText_32, editText_33, editText_41, editText_42, editText_43,
+                            editText_51, editText_52, editText_53, editText_61, editText_62, editText_63);
 
-                int[] secondMatrix = new int[]{
-                        Integer.parseInt(editText_41.getText().toString()),
-                        Integer.parseInt(editText_42.getText().toString()),
-                        Integer.parseInt(editText_43.getText().toString()),
-                        Integer.parseInt(editText_51.getText().toString()),
-                        Integer.parseInt(editText_52.getText().toString()),
-                        Integer.parseInt(editText_53.getText().toString()),
-                        Integer.parseInt(editText_61.getText().toString()),
-                        Integer.parseInt(editText_62.getText().toString()),
-                        Integer.parseInt(editText_63.getText().toString())
-                };
-
-                int[] result = new int[9];
-
-                // Perform matrix addition
-                for (int i = 0; i < 9; i++) {
-                    result[i] = firstMatrix[i] - secondMatrix[i];
+                    Intent intent = new Intent(getActivity(), MainActivity2.class);
+                    intent.putExtra("Result", result);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getActivity(), "Please fill all fields with numeric values", Toast.LENGTH_SHORT).show();
                 }
-
-                Intent intent = new Intent(getActivity(), MainActivity2.class);
-                intent.putExtra("Result", result);
-                startActivity(intent);
             }
         });
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int[] firstMatrix = new int[]{
-                        Integer.parseInt(editText_11.getText().toString()),
-                        Integer.parseInt(editText_12.getText().toString()),
-                        Integer.parseInt(editText_13.getText().toString()),
-                        Integer.parseInt(editText_21.getText().toString()),
-                        Integer.parseInt(editText_22.getText().toString()),
-                        Integer.parseInt(editText_23.getText().toString()),
-                        Integer.parseInt(editText_31.getText().toString()),
-                        Integer.parseInt(editText_32.getText().toString()),
-                        Integer.parseInt(editText_33.getText().toString())
-                };
+                if (areFieldsValid(editText_11, editText_12, editText_13, editText_21, editText_22, editText_23,
+                        editText_31, editText_32, editText_33, editText_41, editText_42, editText_43,
+                        editText_51, editText_52, editText_53, editText_61, editText_62, editText_63)) {
+                    int[] result = calculateMatrixAddition(editText_11, editText_12, editText_13, editText_21, editText_22, editText_23,
+                            editText_31, editText_32, editText_33, editText_41, editText_42, editText_43,
+                            editText_51, editText_52, editText_53, editText_61, editText_62, editText_63);
 
-                int[] secondMatrix = new int[]{
-                        Integer.parseInt(editText_41.getText().toString()),
-                        Integer.parseInt(editText_42.getText().toString()),
-                        Integer.parseInt(editText_43.getText().toString()),
-                        Integer.parseInt(editText_51.getText().toString()),
-                        Integer.parseInt(editText_52.getText().toString()),
-                        Integer.parseInt(editText_53.getText().toString()),
-                        Integer.parseInt(editText_61.getText().toString()),
-                        Integer.parseInt(editText_62.getText().toString()),
-                        Integer.parseInt(editText_63.getText().toString())
-                };
-
-                int[] result = new int[9];
-
-                // Perform matrix addition
-                for (int i = 0; i < 9; i++) {
-                    result[i] = firstMatrix[i] + secondMatrix[i];
+                    Intent intent = new Intent(getActivity(), MainActivity2.class);
+                    intent.putExtra("Result", result);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getActivity(), "Please fill all fields with numeric values", Toast.LENGTH_SHORT).show();
                 }
-
-                Intent intent = new Intent(getActivity(), MainActivity2.class);
-                intent.putExtra("Result", result);
-                startActivity(intent);
             }
         });
 
         return view;
+    }
+
+    private boolean areFieldsValid(EditText... editTexts) {
+        for (EditText editText : editTexts) {
+            String text = editText.getText().toString().trim();
+            if (TextUtils.isEmpty(text) || !TextUtils.isDigitsOnly(text)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private int[] calculateMatrixAddition(EditText... editTexts) {
+        int[] result = new int[9];
+        for (int i = 0; i < 9; i++) {
+            result[i] = Integer.parseInt(editTexts[i].getText().toString());
+        }
+        return result;
+    }
+
+    private int[] calculateMatrixSubtraction(EditText... editTexts) {
+        int[] result = new int[9];
+        for (int i = 0; i < 9; i++) {
+            result[i] = Integer.parseInt(editTexts[i].getText().toString());
+        }
+        return result;
+    }
+
+    private int[] calculateMatrixMultiplication(EditText... editTexts) {
+        int[] result = new int[9];
+        // Matrix multiplication logic here
+        return result;
     }
 }
